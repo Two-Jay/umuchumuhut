@@ -20,16 +20,10 @@ if 'llmHyperParameters' not in st.session_state:
 		'top_p': 1,
 		'frequency_penalty': 0,
 		'presence_penalty': 0,
+		'agent': None
 	}
 
-def get_default_hyperparameters() -> dict:
-  return {
-		'temperature': 0.7,
-		'max_tokens': 256,
-		'top_p': 1,
-		'frequency_penalty': 0,
-		'presence_penalty': 0,
-	}
+
 
 # Create a sidebar
 st.sidebar.header("사이드바")

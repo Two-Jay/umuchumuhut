@@ -2,6 +2,12 @@ import streamlit as st
 from enums import Gender, AgeGroup, SpeechStyle
 
 def transform():
+  if not st.session_state.diary_app.get('diary_text'):
+    st.error("일기 입력을 먼저 진행해 주세요.")
+    return
+  if not st.session_state.llmHyperParameters.get('agent'):
+    st.error("왼쪽의 페이지 선택에서 LLM 설정을 먼저 진행해 주세요.")
+    return
   st.session_state.diary_app['result'] = st.session_state.llmHyperParameters['agent'].inference(st.session_state.diary_app['diary_text'])
 
 def display():
